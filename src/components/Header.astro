@@ -2,10 +2,11 @@
 // Header.astro
 ---
 
-<header class="bg-[#0f0f0f] text-white py-4 shadow-2xl">
-    <div class="container mx-auto flex justify-between items-center px-6 max-w-screen-xl">
-      <div class="flex items-center space-x-6">
-        <div class="flex items-center">
+<header class="bg-[#0f0f0f] text-white py-4 shadow-2xl fixed top-0 left-0 w-full z-50">
+  <div class="container mx-auto flex justify-between items-center px-6 max-w-screen-xl">
+    <div class="flex items-center space-x-6">
+      <div class="flex items-center">
+        <a href="/" class="flex items-center">
           <img 
             src="/logorally.png" 
             alt="Rally Logo" 
@@ -15,93 +16,175 @@
             <span class="text-3xl font-extrabold tracking-tighter text-green-500 leading-none">
               PETROBRAS
             </span>
-            <span class="text-sm font-medium tracking-widest text-gray-300 uppercase">
+            <span class="text-sm font-medium tracking-widest text-yellow-300 uppercase">
               Rally Paraguay
             </span>
           </div>
-        </div>
-      </div>
-      
-      <nav class="hidden lg:flex items-center space-x-10">
-        {['Inicio', 'Eventos', 'Pilotos', 'Campeonatos', 'Contacto'].map((item) => (
-          <a 
-            href="#" 
-            class="relative group text-sm font-semibold tracking-wide text-gray-200 
-            uppercase transition-all duration-300 
-            hover:text-green-500 
-            before:absolute before:bottom-[-4px] before:left-0 
-            before:w-0 before:h-0.5 before:bg-green-500 
-            before:transition-all before:duration-300 
-            hover:before:w-full"
-          >
-            {item}
-          </a>
-        ))}
-      </nav>
-      
-      <div class="flex items-center space-x-4">
-        <button class="bg-green-600 text-white px-7 py-3 rounded-lg 
-          font-bold text-sm tracking-wider uppercase 
-          hover:bg-green-700 transition-colors 
-          hidden lg:block 
-          transform hover:scale-105 active:scale-95 
-          shadow-md hover:shadow-lg">
-          Inscríbete Ahora
-        </button>
-        
-        <button id="mobile-menu-toggle" class="lg:hidden text-white focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        </a>
       </div>
     </div>
     
-    <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-[#0f0f0f] z-50 transform translate-x-full transition-transform duration-500 ease-in-out">
-      <div class="flex justify-between p-6 border-b border-gray-800">
-        <div class="flex flex-col">
-          <span class="text-3xl font-extrabold tracking-tighter text-green-500 leading-none">
-            PETROBRAS
-          </span>
-          <span class="text-sm font-medium tracking-widest text-gray-300 uppercase">
-            Rally Paraguay
-          </span>
-        </div>
-        <button id="mobile-menu-close" class="text-white focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <nav class="px-6 space-y-1 mt-8">
-        {['Inicio', 'Eventos', 'Pilotos', 'Campeonatos', 'Contacto'].map((item) => (
-          <a href="#" class="block text-lg text-gray-200 py-4 border-b border-gray-800 
-          hover:bg-gray-900 hover:text-green-500 transition-all duration-300">
-            {item}
-          </a>
-        ))}
-        <button class="w-full bg-green-600 text-white px-7 py-4 rounded-lg 
-          font-bold text-sm tracking-wider uppercase 
-          hover:bg-green-700 mt-6 
-          transition-colors shadow-md hover:shadow-lg">
-          Inscríbete Ahora
-        </button>
-      </nav>
+    <nav class="hidden lg:flex items-center space-x-10">
+      <a 
+        href="#welcome" 
+        class="relative group text-sm font-semibold tracking-wide text-gray-200 
+        uppercase transition-all duration-300 
+        hover:text-green-500 
+        before:absolute before:bottom-[-4px] before:left-0 
+        before:w-0 before:h-0.5 before:bg-green-500 
+        before:transition-all before:duration-300 
+        hover:before:w-full"
+      >
+        Inicio
+      </a>
+      <a 
+        href="#eventos" 
+        class="relative group text-sm font-semibold tracking-wide text-gray-200 
+        uppercase transition-all duration-300 
+        hover:text-green-500 
+        before:absolute before:bottom-[-4px] before:left-0 
+        before:w-0 before:h-0.5 before:bg-green-500 
+        before:transition-all before:duration-300 
+        hover:before:w-full"
+      >
+        Eventos
+      </a>
+      <a 
+        href="#pilotos" 
+        class="relative group text-sm font-semibold tracking-wide text-gray-200 
+        uppercase transition-all duration-300 
+        hover:text-green-500 
+        before:absolute before:bottom-[-4px] before:left-0 
+        before:w-0 before:h-0.5 before:bg-green-500 
+        before:transition-all before:duration-300 
+        hover:before:w-full"
+      >
+        Pilotos
+      </a>
+      <a 
+        href="/campeonatos" 
+        class="relative group text-sm font-semibold tracking-wide text-gray-200 
+        uppercase transition-all duration-300 
+        hover:text-green-500 
+        before:absolute before:bottom-[-4px] before:left-0 
+        before:w-0 before:h-0.5 before:bg-green-500 
+        before:transition-all before:duration-300 
+        hover:before:w-full"
+      >
+        Campeonatos
+      </a>
+      <a 
+        href="/contacto" 
+        class="relative group text-sm font-semibold tracking-wide text-gray-200 
+        uppercase transition-all duration-300 
+        hover:text-green-500 
+        before:absolute before:bottom-[-4px] before:left-0 
+        before:w-0 before:h-0.5 before:bg-green-500 
+        before:transition-all before:duration-300 
+        hover:before:w-full"
+      >
+        Contacto
+      </a>
+    </nav>
+    
+    <div class="flex items-center space-x-4">
+      <a 
+        href="/inscripcion" 
+        class="bg-green-600 text-white px-7 py-3 rounded-lg 
+        font-bold text-sm tracking-wider uppercase 
+        hover:bg-green-700 transition-colors 
+        hidden lg:block 
+        transform hover:scale-105 active:scale-95 
+        shadow-md hover:shadow-lg"
+      >
+        Inscríbete Ahora
+      </a>
+      
+      <button id="mobile-menu-toggle" class="lg:hidden text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
-  </header>
+  </div>
   
-  <script>
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
-    const mobileMenu = document.getElementById('mobile-menu');
-  
-    mobileMenuToggle?.addEventListener('click', () => {
-      mobileMenu?.classList.remove('translate-x-full');
-      mobileMenu?.classList.add('translate-x-0');
-    });
-  
-    mobileMenuClose?.addEventListener('click', () => {
-      mobileMenu?.classList.remove('translate-x-0');
-      mobileMenu?.classList.add('translate-x-full');
-    });
-  </script>
+  <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-[#0f0f0f] z-50 transform translate-x-full transition-transform duration-500 ease-in-out">
+    <div class="flex justify-between p-6 border-b border-gray-800">
+      <div class="flex flex-col">
+        <span class="text-3xl font-extrabold tracking-tighter text-green-500 leading-none">
+          PETROBRAS
+        </span>
+        <span class="text-sm font-medium tracking-widest text-gray-300 uppercase">
+          Rally Paraguay
+        </span>
+      </div>
+      <button id="mobile-menu-close" class="text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="px-6 space-y-1 mt-8">
+      <a
+        href="/"
+        class="block text-lg text-gray-200 py-4 border-b border-gray-800 
+        hover:bg-gray-900 hover:text-green-500 transition-all duration-300"
+      >
+        Inicio
+      </a>
+      <a
+        href="/eventos"
+        class="block text-lg text-gray-200 py-4 border-b border-gray-800 
+        hover:bg-gray-900 hover:text-green-500 transition-all duration-300"
+      >
+        Eventos
+      </a>
+      <a
+        href="/pilotos"
+        class="block text-lg text-gray-200 py-4 border-b border-gray-800 
+        hover:bg-gray-900 hover:text-green-500 transition-all duration-300"
+      >
+        Pilotos
+      </a>
+      <a
+        href="/campeonatos"
+        class="block text-lg text-gray-200 py-4 border-b border-gray-800 
+        hover:bg-gray-900 hover:text-green-500 transition-all duration-300"
+      >
+        Campeonatos
+      </a>
+      <a
+        href="/contacto"
+        class="block text-lg text-gray-200 py-4 border-b border-gray-800 
+        hover:bg-gray-900 hover:text-green-500 transition-all duration-300"
+      >
+        Contacto
+      </a>
+      <a
+        href="/inscripcion"
+        class="w-full bg-green-600 text-white px-7 py-4 rounded-lg 
+        font-bold text-sm tracking-wider uppercase 
+        hover:bg-green-700 mt-6 
+        transition-colors shadow-md hover:shadow-lg"
+      >
+        Inscríbete Ahora
+      </a>
+    </nav>      
+  </div>
+</header>
+
+<script>
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('translate-x-full');
+    mobileMenu?.classList.add('translate-x-0');
+  });
+
+  mobileMenuClose?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('translate-x-0');
+    mobileMenu?.classList.add('translate-x-full');
+  });
+</script>

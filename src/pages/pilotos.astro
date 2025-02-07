@@ -1,0 +1,126 @@
+---
+// src/pages/pilotos.astro
+import Layout from '../layouts/Layout.astro';
+import { pilotos } from '../data/pilotos';
+---
+
+<Layout title="Equipo Petrobras Rally - Pilotos y Copilotos">
+  <main class="min-h-screen w-full bg-[#0A0A0A] overflow-x-hidden">
+    <!-- Fondo decorativo -->
+    <div class="fixed inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#00B84C]/5 to-transparent"></div>
+      <div class="absolute w-[500px] h-[500px] bg-[#00B84C]/10 rounded-full blur-[100px] -top-48 -left-48"></div>
+      <div class="absolute w-[500px] h-[500px] bg-[#FFD700]/5 rounded-full blur-[100px] -bottom-48 -right-48"></div>
+    </div>
+
+    <div class="max-w-[1440px] w-full mx-auto px-4 sm:px-6 py-16 sm:py-24 relative">
+      <!-- Hero Section -->
+      <div class="text-center mb-16 sm:mb-24">
+        <span class="inline-block px-6 py-2 bg-[#00B84C]/15 rounded-full text-[#00D459] text-sm font-bold mb-6 uppercase tracking-wide">
+          Nuestro Equipo
+        </span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+          Equipo de 
+          <span class="text-[#00B84C]">
+            Elite
+          </span>
+        </h1>
+        <p class="text-lg sm:text-xl text-[#AAAAAA] max-w-2xl mx-auto">
+          Conoce a los profesionales que llevan a Petrobras Rally al podio en cada competencia
+        </p>
+      </div>
+
+      <!-- Grid de Pilotos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {pilotos.map((piloto) => (
+          <article class="bg-[#1A1A1A] rounded-2xl overflow-hidden border border-[#333333] hover:border-[#00B84C]/30 transition-colors duration-300">
+            <!-- Imagen y detalles principales -->
+            <div class="relative">
+              <img 
+                src={piloto.imagen} 
+                alt={`Foto de ${piloto.nombre}`}
+                class="w-full h-[300px] sm:h-[350px] object-cover"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/50 to-transparent">
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                  <!-- Badge de rol -->
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="inline-flex items-center px-4 py-1.5 bg-[#00B84C] text-white text-sm font-bold rounded-full">
+                      {piloto.rol}
+                    </span>
+                    <span class="flex items-center gap-2 text-[#AAAAAA]">
+                      <img 
+                        src={`/banderas/${piloto.nacionalidad.toLowerCase()}.png`}
+                        alt={`Bandera de ${piloto.nacionalidad}`}
+                        class="w-5 h-5 rounded-full object-cover ring-1 ring-[#333333]"
+                        loading="lazy"
+                      />
+                      {piloto.nacionalidad}
+                    </span>
+                  </div>
+                  
+                  <!-- Nombre -->
+                  <h2 class="text-2xl sm:text-3xl font-bold text-white hover:text-[#00D459] transition-colors duration-300">
+                    {piloto.nombre}
+                  </h2>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Estadísticas y descripción -->
+            <div class="p-6 sm:p-8">
+              <div class="grid grid-cols-2 gap-4 p-4 bg-[#111111] rounded-xl mb-6">
+                <div class="text-center">
+                  <span class="block text-2xl sm:text-3xl font-bold text-[#00B84C] mb-1">
+                    {piloto.victorias}
+                  </span>
+                  <span class="text-sm text-[#999999]">Victorias</span>
+                </div>
+                <div class="text-center border-l border-[#333333]">
+                  <span class="block text-2xl sm:text-3xl font-bold text-[#00B84C] mb-1">
+                    {piloto.experiencia}
+                  </span>
+                  <span class="text-sm text-[#999999]">Experiencia</span>
+                </div>
+              </div>
+
+              <!-- Descripción -->
+              <p class="text-[#AAAAAA] text-sm sm:text-base leading-relaxed">
+                {piloto.descripcionCorta}
+              </p>
+
+              <!-- Social Links -->
+              <div class="flex items-center gap-4 mt-6 pt-6 border-t border-[#333333]">
+                <a href="#" class="text-[#999999] hover:text-[#00D459] transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                  </svg>
+                </a>
+                <a href="#" class="text-[#999999] hover:text-[#00D459] transition-colors duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* Estilos globales para prevenir scroll horizontal */
+  :global(body) {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  :global(html) {
+    overflow-x: hidden;
+  }
+</style>

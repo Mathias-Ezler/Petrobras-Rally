@@ -1,0 +1,72 @@
+---
+// Archivo: src/pages/eventos/[slug].astro
+import Layout from '../../layouts/Layout.astro';
+import { eventos } from '../../data/eventos';
+
+export async function getStaticPaths() {
+  return eventos.map(evento => ({
+    params: { slug: evento.slug },
+    props: { evento },
+  }));
+}
+
+const { evento } = Astro.props;
+---
+
+<Layout title={`${evento.nombre} | Eventos de Rally`}>
+  <main class="py-12">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-6 text-center">{evento.nombre}</h1>
+      
+      <div class="mb-8">
+        <img src={evento.rutaMapaUrl || "/placeholder.svg"} alt={`Ruta del ${evento.nombre}`} class="w-full h-96 object-cover rounded-lg shadow-md">
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="md:col-span-2">
+          <h2 class="text-2xl font-semibold mb-4">Descripción del Evento</h2>
+          <p class="text-gray-700 mb-6">{evento.descripcion}</p>
+
+          <h2 class="text-2xl font-semibold mb-4">Detalles Técnicos</h2>
+          <p class="text-gray-700 mb-6">{evento.detallesTecnicos}</p>
+
+          <h2 class="text-2xl font-semibold mb-4">Galería de Fotos</h2>
+          <div class="grid grid-cols-2 gap-4">
+            {evento.galeriaFotos.map((foto) => (
+              <img src={foto || "/placeholder.svg"} alt={`Imagen del ${evento.nombre}`} class="w-full h-48 object-cover rounded-md shadow-sm">
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div class="bg-gray-100 p-6 rounded-lg shadow-sm mb-6">
+            <h2 class="text-xl font-semibold mb-4">Información del Evento</h2>
+            <p class="flex items-center mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {evento.fecha}
+            </p>
+            <p class="flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              {evento.ubicacion}
+            </p>
+            <img src={evento.banderaUrl || "/placeholder.svg"} alt={`Bandera de ${evento.ubicacion}`} class="w-16 h-auto mb-4">
+          </div>
+
+          <div class="bg-gray-100 p-6 rounded-lg shadow-sm">
+            <h2 class="text-xl font-semibold mb-4">Patrocinadores</h2>
+            <ul class="list-disc list-inside">
+              {evento.patrocinadores.map((patrocinador) => (
+                <li>{patrocinador}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

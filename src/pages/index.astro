@@ -1,8 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Welcome from '../components/Welcome.astro';
+import FeaturedPilots from '../components/FeaturedPilots.astro';
+import Eventos from '../components/Eventos.astro';
+import { eventos } from '../data/eventos';
 ---
 
 <Layout>
 	  <Welcome />
+	  <FeaturedPilots />
+	  <Eventos eventos={eventos} />
 </Layout>
