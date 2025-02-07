@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Welcome from '../components/Welcome.astro';
 import FeaturedPilots from '../components/FeaturedPilots.astro';
 import Eventos from '../components/Eventos.astro';
+import Contacto from '../components/Contacto.astro';
 import { eventos } from '../data/eventos';
 ---
 
@@ -10,4 +11,5 @@ import { eventos } from '../data/eventos';
 	  <Welcome />
 	  <FeaturedPilots />
 	  <Eventos eventos={eventos} />
+	  <Contacto />
 </Layout>
