@@ -9,7 +9,6 @@ export interface Evento {
   resumen: string;
   descripcion: string;
   rutaMapaUrl: string;
-  banderaUrl: string;
   galeriaFotos: string[];
   detallesTecnicos: string;
   patrocinadores: string[];
@@ -23,9 +22,8 @@ export const eventos: Evento[] = [
     fecha: "24-30 Enero, 2024",
     ubicacion: "Mónaco",
     resumen: "El legendario rally que abre la temporada del rally paraguayo en los caminos de Nueva Alborda, Trinidad y Hoenau esta de vuelta.",
-    descripcion: "El Rally de Monte Carlo es uno de los eventos más antiguos y prestigiosos en el mundo del rally. Conocido por sus condiciones climáticas impredecibles y sus carreteras desafiantes, este rally pone a prueba la habilidad de los pilotos en asfalto, nieve y hielo. Los competidores navegan por las estrechas y sinuosas carreteras de montaña en los Alpes franceses, enfrentándose a cambios repentinos en la superficie y la visibilidad.",
+    descripcion: "El Rally de las colonias es uno de los eventos más antiguos y prestigiosos en el Paraguay. Conocido por impredecibles carreteras desafiantes, este rally pone a prueba la habilidad de los pilotos. Los competidores navegan por las estrechas y sinuosas carreteras, enfrentándose a cambios repentinos en la superficie y la visibilidad.",
     rutaMapaUrl: "/lascolonias.png",
-    banderaUrl: "/images/monaco-flag.png",
     galeriaFotos: [
       "/images/monte-carlo-1.jpg",
       "/images/monte-carlo-2.jpg",
@@ -43,7 +41,6 @@ export const eventos: Evento[] = [
     resumen: "El único rally completamente de nieve en el calendario del WRC, famoso por sus altas velocidades.",
     descripcion: "El Rally de Suecia es el único evento completamente invernal en el calendario del Campeonato Mundial de Rally. Los pilotos compiten en carreteras cubiertas de nieve y hielo, utilizando neumáticos especiales con clavos para obtener tracción. Este rally es conocido por sus altas velocidades y los espectaculares saltos sobre los bancos de nieve. La estrategia y la gestión de los neumáticos son cruciales, ya que las condiciones pueden variar significativamente a lo largo del evento.",
     rutaMapaUrl: "/images/sweden-route.jpg",
-    banderaUrl: "/images/sweden-flag.png",
     galeriaFotos: [
       "/images/sweden-1.jpg",
       "/images/sweden-2.jpg",
