@@ -9,48 +9,71 @@ interface Props {
 const { eventos = [] } = Astro.props;
 ---
 
-<section class="py-20 bg-white" id="eventos">
-  
+<section class="py-24 bg-gradient-to-b from-white to-gray-50" id="eventos">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">
-      Próximos Eventos de Rally
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="max-w-2xl mx-auto text-center mb-16">
+      <h2 class="text-5xl font-bold mb-4 text-gray-900 leading-tight">
+        Próximos Eventos de Rally
+      </h2>
+      <p class="text-lg text-gray-600">
+        Descubre las próximas competencias y únete a la emoción del rally
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {eventos.length > 0 ? (
         eventos.map((evento) => (
-          <div class="bg-gray-950 rounded-lg shadow-md overflow-hidden">
-            <img 
-              src={evento.rutaMapaUrl || "/placeholder.svg"}
-              alt={`Ruta del ${evento.nombre}`}
-              class="w-full h-48 object-cover"
-            />
+          <div class="group bg-[#0f0f0f] rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
+            <div class="relative">
+              <img 
+                src={evento.rutaMapaUrl || "/placeholder.svg"}
+                alt={`Ruta del ${evento.nombre}`}
+                class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                <p class="text-sm font-medium text-gray-900">{evento.fecha}</p>
+              </div>
+            </div>
+            
             <div class="p-6">
-              <h3 class="text-xl font-semibold mb-2 text-white">{evento.nombre}</h3>
-              <p class="text-white mb-2 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                {evento.fecha}
-              </p>
-              <p class="text-white mb-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-[#00B84C] transition-colors">
+                {evento.nombre}
+              </h3>
+              
+              <div class="flex items-center mb-4 text-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-[#00B84C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                {evento.ubicacion}
-              </p>
-              <p class="text-white mb-4">{evento.resumen}</p>
-              <a 
-                href={`/eventos/${evento.slug}`}
-                class="inline-block bg-[#00B84C] text-white py-2 px-4 rounded font-semibold hover:bg-[#009940] transition-colors duration-300"
-              >
-                Más detalles
-              </a>
+                <p class="text-sm">{evento.ubicacion}</p>
+              </div>
+
+              <p class="text-white mb-6 line-clamp-3">{evento.resumen}</p>
+
+              <div class="pt-4 border-t border-gray-100">
+                <a 
+                  href={`/eventos/${evento.slug}`}
+                  class="inline-flex items-center justify-center w-full bg-[#00B84C] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#009940] transform hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  Ver detalles
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         ))
       ) : (
-        <p class="col-span-full text-center text-gray-500">No hay eventos programados en este momento.</p>
+        <div class="col-span-full">
+          <div class="text-center py-12 px-4 bg-gray-50 rounded-xl">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <p class="text-xl text-gray-600 font-medium">No hay eventos programados en este momento</p>
+            <p class="text-gray-500 mt-2">Vuelve a consultar próximamente para nuevos eventos</p>
+          </div>
+        </div>
       )}
     </div>
   </div>
