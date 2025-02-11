@@ -25,9 +25,8 @@ export const eventos: Evento[] = [
     descripcion: "El Rally de las colonias es uno de los eventos más antiguos y prestigiosos en el Paraguay. Conocido por impredecibles carreteras desafiantes, este rally pone a prueba la habilidad de los pilotos. Los competidores navegan por las estrechas y sinuosas carreteras, enfrentándose a cambios repentinos en la superficie y la visibilidad.",
     rutaMapaUrl: "/lascolonias.png",
     galeriaFotos: [
-      "/images/monte-carlo-1.jpg",
-      "/images/monte-carlo-2.jpg",
-      "/images/monte-carlo-3.jpg",
+      "/foto2.png",
+      "/fondo.png",
     ],
     detallesTecnicos: "Distancia total: 324.39 km, Etapas cronometradas: 17, Superficie: Asfalto/Nieve",
     patrocinadores: ["Pirelli", "Red Bull", "Citroën"]
@@ -59,7 +58,7 @@ export const eventos: Evento[] = [
   "rutaMapaUrl": "/fondo.png",
   "galeriaFotos": [
     "/fondo.png",
-    "/rally-itapua2.png"
+    "/foto2.png"
   ],
   "detallesTecnicos": "Distancia total: 900 km, Etapas cronometradas: 18, Superficie: Tierra/Grava",
   "patrocinadores": ["Petrobras", "Cervepar", "ABC Color", "Turismo SENATUR"]
