@@ -1,56 +1,91 @@
----
-// Welcome.astro
----
-
 <section 
-  class="relative h-[100vh] w-full bg-cover bg-center flex items-center justify-center" 
-  style="background-image: url('/fondo.png');"
+  class="relative min-h-screen w-full bg-cover bg-center flex items-center justify-center overflow-hidden" 
+  style="background-image: url('/general/fondo.png');"
   id="welcome"
 >
+  <!-- Filtro negro sobre la imagen -->
   <div class="absolute inset-0 bg-black/70"></div>
   
-  <div class="relative z-10 text-center px-4 max-w-5xl">
-    <span class="inline-block text-green-400 font-medium tracking-wider uppercase mb-4">Próximo evento - Rally Petrobras 2025</span>
+  <!-- Contenido del banner -->
+  <div class="relative z-10 text-center px-4 w-full max-w-5xl mx-auto py-16">
+    <!-- Texto del evento -->
+    <span class="inline-block text-green-400 font-medium tracking-wider uppercase mb-4 text-sm sm:text-base">
+      Próximo evento - Rally Petrobras 2025
+    </span>
     
-    <h1 class="text-5xl md:text-8xl font-black text-yellow-300 uppercase tracking-tighter mb-6">
+    <!-- Título del evento -->
+    <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-yellow-300 uppercase tracking-tighter mb-6">
       <span class="text-green-500">Petrobras</span> Rally
     </h1>
     
-    <p class="text-xl md:text-2xl text-gray-200 mb-10 font-medium max-w-3xl mx-auto">
+    <!-- Subtítulo -->
+    <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-10 font-medium max-w-3xl mx-auto">
       La aventura comienza en:
     </p>
     
-    <div id="countdown" class="flex justify-center items-center mb-16 space-x-8 md:space-x-12">
-      {['dias', 'horas', 'minutos', 'segundos'].map((unit) => (
-        <div class="group flex flex-col items-center">
-          <span 
-            id={unit}
-            class="block text-6xl md:text-8xl font-black text-white
-            group-hover:text-white transition-all duration-300"
-          >
-            00
-          </span>
-          <span class="text-sm md:text-base uppercase tracking-widest text-gray-300 group-hover:text-green-400 transition-colors">
-            {unit.charAt(0).toUpperCase() + unit.slice(1)}
-          </span>
-        </div>
-      ))}
+    <!-- Contador -->
+    <div id="countdown" class="flex justify-center items-center mb-12 gap-2 sm:gap-4 md:gap-8 lg:gap-12">
+      <div class="group flex flex-col items-center">
+        <span 
+          id="dias"
+          class="block text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-black text-white font-mono group-hover:text-white transition-all duration-300"
+        >
+          00
+        </span>
+        <span class="text-xs sm:text-sm md:text-base uppercase tracking-widest text-gray-300 group-hover:text-green-400 transition-colors">
+          Días
+        </span>
+      </div>
+      <div class="group flex flex-col items-center">
+        <span 
+          id="horas"
+          class="block text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-black text-white font-mono group-hover:text-white transition-all duration-300"
+        >
+          00
+        </span>
+        <span class="text-xs sm:text-sm md:text-base uppercase tracking-widest text-gray-300 group-hover:text-green-400 transition-colors">
+          Horas
+        </span>
+      </div>
+      <div class="group flex flex-col items-center">
+        <span 
+          id="minutos"
+          class="block text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-black text-white font-mono group-hover:text-white transition-all duration-300"
+        >
+          00
+        </span>
+        <span class="text-xs sm:text-sm md:text-base uppercase tracking-widest text-gray-300 group-hover:text-green-400 transition-colors">
+          Minutos
+        </span>
+      </div>
+      <div class="group flex flex-col items-center">
+        <span 
+          id="segundos"
+          class="block text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-black text-white font-mono group-hover:text-white transition-all duration-300"
+        >
+          00
+        </span>
+        <span class="text-xs sm:text-sm md:text-base uppercase tracking-widest text-gray-300 group-hover:text-green-400 transition-colors">
+          Segundos
+        </span>
+      </div>
     </div>
     
-    <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
-      <a href="#eventos" class="bg-green-600 text-white px-12 py-4 rounded-lg 
-        font-bold uppercase tracking-wider text-sm
+    <!-- Botones -->
+    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+      <a href="#eventos" class="bg-green-600 text-white px-6 sm:px-8 md:px-12 py-3 sm:py-4 rounded-lg 
+        font-bold uppercase tracking-wider text-xs sm:text-sm
         hover:bg-green-700 transition-all duration-300
         transform hover:scale-105 hover:-translate-y-1
-        shadow-lg hover:shadow-green-500/20">
+        shadow-lg hover:shadow-green-500/20 w-full sm:w-auto">
         Ver Próximos Eventos
       </a>
-      <a href="/pilotos" class="border-2 border-yellow-400 text-white px-12 py-4 rounded-lg 
-        font-bold uppercase tracking-wider text-sm
+      <a href="/pilotos" class="border-2 border-yellow-400 text-white px-6 sm:px-8 md:px-12 py-3 sm:py-4 rounded-lg 
+        font-bold uppercase tracking-wider text-xs sm:text-sm
         hover:bg-white hover:text-black 
         transition-all duration-300
         transform hover:scale-105 hover:-translate-y-1
-        shadow-lg hover:shadow-white/20">
+        shadow-lg hover:shadow-white/20 w-full sm:w-auto">
         Pilotos Destacados
       </a>
     </div>
@@ -67,7 +102,7 @@
       const countdownElement = document.getElementById('countdown');
       if (countdownElement) {
         countdownElement.innerHTML = 
-          '<span class="text-4xl md:text-6xl text-green-500 font-black">¡El evento ha comenzado!</span>';
+          '<span class="text-2xl sm:text-4xl md:text-6xl text-green-500 font-black">¡El evento ha comenzado!</span>';
       }
       return;
     }
@@ -91,3 +126,4 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 </script>
+

@@ -14,20 +14,20 @@ const { evento } = Astro.props;
 ---
 
 <Layout title={`${evento.nombre} | Eventos`}>
-  <main class="relative min-h-screen">
+  <main class="relative min-h-screen w-full">
     <!-- Fondo decorativo -->
-    <div class="absolute inset-0 bg-[#0A0A0A]">
+    <div class="fixed inset-0 bg-[#0A0A0A] -z-10">
       <div class="absolute inset-0 bg-gradient-to-br from-[#00B84C]/15 via-[#00B84C]/5 to-transparent"></div>
       <div class="absolute w-[400px] h-[400px] bg-[#00B84C]/10 rounded-full blur-[100px] -top-48 -left-48"></div>
       <div class="absolute w-[400px] h-[400px] bg-[#FFD700]/5 rounded-full blur-[100px] -bottom-48 -right-48"></div>
     </div>
 
     <!-- Contenido -->
-    <div class="relative pt-24 pb-16">
-      <div class="max-w-[1200px] mx-auto px-6">
+    <div class="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-[1200px] mx-auto">
         <!-- Encabezado -->
         <header class="mb-16">
-          <h1 class="text-5xl font-bold text-center text-white mb-4">
+          <h1 class="text-4xl sm:text-5xl font-bold text-center text-white mb-4">
             {evento.nombre}
           </h1>
           <p class="text-xl text-center text-gray-400">{evento.fecha}</p>
@@ -39,22 +39,22 @@ const { evento } = Astro.props;
             <img 
               src={evento.rutaMapaUrl || "/hoja1.png"} 
               alt={`Ruta del ${evento.nombre}`} 
-              class="w-full h-[600px] object-cover"
+              class="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
             >
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <!-- Contenido principal -->
-          <div class="md:col-span-2 space-y-12">
+          <div class="lg:col-span-2 space-y-8 lg:space-y-12">
             <!-- Descripción -->
-            <section class="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-[#00B84C]/10">
+            <section class="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-[#00B84C]/10">
               <h2 class="text-2xl font-bold mb-6 text-[#00B84C]">Descripción del Evento</h2>
               <p class="text-gray-300 leading-relaxed">{evento.descripcion}</p>
             </section>
 
             <!-- Detalles técnicos -->
-            <section class="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-[#00B84C]/10">
+            <section class="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-[#00B84C]/10">
               <h2 class="text-2xl font-bold mb-6 text-[#00B84C]">Detalles Técnicos</h2>
               <p class="text-gray-300 leading-relaxed">{evento.detallesTecnicos}</p>
             </section>
@@ -62,13 +62,13 @@ const { evento } = Astro.props;
             <!-- Galería -->
             <section class="space-y-6">
               <h2 class="text-2xl font-bold text-[#00B84C] ml-2">Galería de Fotos</h2>
-              <div class="grid grid-cols-2 gap-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {evento.galeriaFotos.map((foto) => (
                   <div class="rounded-xl overflow-hidden border border-[#00B84C]/10 hover:border-[#FFD700]/30 transition-all duration-300">
                     <img 
                       src={foto || "/placeholder.svg"} 
                       alt={`Imagen del ${evento.nombre}`} 
-                      class="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+                      class="w-full h-48 sm:h-64 object-cover hover:scale-105 transition-transform duration-500"
                     >
                   </div>
                 ))}
@@ -79,7 +79,7 @@ const { evento } = Astro.props;
           <!-- Sidebar -->
           <div class="space-y-8">
             <!-- Info del evento -->
-            <div class="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-[#00B84C]/10">
+            <div class="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-[#00B84C]/10">
               <h2 class="text-2xl font-bold mb-8 text-[#00B84C]">Información del Evento</h2>
               
               <div class="space-y-6">
@@ -105,7 +105,7 @@ const { evento } = Astro.props;
             </div>
 
             <!-- Patrocinadores -->
-            <div class="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-[#00B84C]/10">
+            <div class="bg-black/40 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-[#00B84C]/10">
               <h2 class="text-2xl font-bold mb-8 text-[#00B84C]">Patrocinadores</h2>
               <ul class="space-y-4">
                 {evento.patrocinadores.map((patrocinador) => (
@@ -122,3 +122,4 @@ const { evento } = Astro.props;
     </div>
   </main>
 </Layout>
+

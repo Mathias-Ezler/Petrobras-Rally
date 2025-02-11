@@ -1,171 +1,168 @@
 ---
-// Header.astro
----
 
-<header class="bg-[#0f0f0f] text-white py-4 shadow-2xl fixed top-0 left-0 w-full z-50">
-  <div class="container mx-auto flex justify-between items-center px-6 max-w-screen-xl">
-    <div class="flex items-center space-x-6">
-      <div class="flex items-center">
-        <a href="/" class="flex items-center">
-          <img 
-            src="/logorally.png" 
-            alt="Rally Logo" 
-            class="h-14 w-auto mr-4 transition-transform hover:rotate-6"
-          />
-          <div class="flex flex-col">
-            <span class="text-3xl font-extrabold tracking-tighter text-green-500 leading-none">
-              PETROBRAS
-            </span>
-            <span class="text-sm font-medium tracking-widest text-yellow-300 uppercase">
-              Rally Paraguay
-            </span>
+---
+ 
+<header class="bg-[#080808] shadow-sm fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex items-center gap-2">
+          <img src="/general/logo.png" alt="Logo" class="w-8 h-8">
+          <a href="/" class="text-xl font-bold text-green-500 leading-tight">
+            <span class="block">Petrobras</span>
+            <span class="block text-sm text-yellow-500">Rally Paraguay</span>
+          </a>
+        </div>
+                  
+
+      <!-- Desktop Menu -->
+      <nav class="hidden lg:flex space-x-8">
+        <a href="/#welcome" class="text-green-400 hover:text-yellow-400 px-3 py-2 rounded-md text-1xl font-bold">Inicio</a>
+        <a href="/#pilotos" class="text-green-400 hover:text-yellow-400 px-3 py-2 rounded-md text-1xl font-bold">Pilotos</a>
+        <a href="/#eventos" class="text-green-400 hover:text-yellow-400 px-3 py-2 rounded-md text-1xl font-bold">Eventos</a>
+        <!--         <a href="/#etapas" class="text-green-400 hover:text-yellow-400 px-3 py-2 rounded-md text-sm font-medium">Etapas</a>  -->
+        <div class="relative group">
+          <button class="menu-button text-text px-3 py-2 rounded-md text-sm font-medium">
+            Institucional
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="submenu absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden">
+            <div class="py-1">
+              <a href="/requisitos" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Requisitos</a>
+              <a href="/proceso" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Proceso</a>
+              <a href="/costos" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Costos</a>
+            </div>
           </div>
-        </a>
+        </div>
+
+        <a href="/noticias" class="text-text px-3 py-2 rounded-md text-sm font-medium">Noticias</a>
+        <a href="/contacto" class="text-text px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <div class="lg:hidden">
+        <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-green-400">
+          <span class="hamburger-icon">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </span>
+        </button>
       </div>
     </div>
-    
-    <nav class="hidden lg:flex items-center space-x-10">
-      <a 
-        href="/#welcome" 
-        class="relative group text-sm font-semibold tracking-wide text-gray-200 
-        uppercase transition-all duration-300 
-        hover:text-green-500 
-        before:absolute before:bottom-[-4px] before:left-0 
-        before:w-0 before:h-0.5 before:bg-green-500 
-        before:transition-all before:duration-300 
-        hover:before:w-full"
-      >
-        Inicio
-      </a>
-      <a 
-        href="#pilotos" 
-        class="relative group text-sm font-semibold tracking-wide text-gray-200 
-        uppercase transition-all duration-300 
-        hover:text-green-500 
-        before:absolute before:bottom-[-4px] before:left-0 
-        before:w-0 before:h-0.5 before:bg-green-500 
-        before:transition-all before:duration-300 
-        hover:before:w-full"
-      >
-        Pilotos
-      </a>
-      <a 
-        href="#eventos" 
-        class="relative group text-sm font-semibold tracking-wide text-gray-200 
-        uppercase transition-all duration-300 
-        hover:text-green-500 
-        before:absolute before:bottom-[-4px] before:left-0 
-        before:w-0 before:h-0.5 before:bg-green-500 
-        before:transition-all before:duration-300 
-        hover:before:w-full"
-      >
-        Eventos
-      </a>
-      <a 
-        href="/#contacto" 
-        class="relative group text-sm font-semibold tracking-wide text-gray-200 
-        uppercase transition-all duration-300 
-        hover:text-green-500 
-        before:absolute before:bottom-[-4px] before:left-0 
-        before:w-0 before:h-0.5 before:bg-green-500 
-        before:transition-all before:duration-300 
-        hover:before:w-full"
-      >
-        Contacto
-      </a>
-    </nav>
-    
-    <div class="flex items-center space-x-4">
-      <a 
-        href="/inscripcion" 
-        class="bg-green-600 text-white px-7 py-3 rounded-lg 
-        font-bold text-sm tracking-wider uppercase 
-        hover:bg-green-700 transition-colors 
-        hidden lg:block 
-        transform hover:scale-105 active:scale-95 
-        shadow-md hover:shadow-lg"
-      >
-        Inscríbete Ahora
-      </a>
-      
-      <button id="mobile-menu-toggle" class="lg:hidden text-white focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-  </div>
-  
-  <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-[#0f0f0f] z-50 transform translate-x-full transition-transform duration-500 ease-in-out">
-    <div class="flex justify-between p-6 border-b border-gray-800">
-      <div class="flex flex-col">
-        <span class="text-3xl font-extrabold tracking-tighter text-green-500 leading-none">
-          PETROBRAS
-        </span>
-        <span class="text-sm font-medium tracking-widest text-gray-300 uppercase">
-          Rally Paraguay
-        </span>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 top-16 bg-gray-900 opacity-95 z-40">
+      <div class="p-4 space-y-4 h-full overflow-y-auto">
+        <a href="/#welcome" class="block px-3 py-2 text-base font-bold text-yellow-500">Inicio</a>
+        <a href="/#pilotos" class="block px-3 py-2 text-base font-bold text-yellow-500">Pilotos</a>
+        <a href="/#eventos" class="block px-3 py-2 text-base font-bold text-yellow-500 ">Eventos</a> 
+        <a href="/#contacto" class="block px-3 py-2 text-base font-bold text-yellow-500">Contacto</a>
       </div>
-      <button id="mobile-menu-close" class="text-white focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
     </div>
-    <nav class="px-6 space-y-1 mt-8">
-      <a
-        href="/"
-        class="block text-lg text-gray-200 py-4 border-b border-gray-800 
-        hover:bg-gray-900 hover:text-green-500 transition-all duration-300"
-      >
-        Inicio
-      </a>
-      <a
-        href="#eventos"
-        class="block text-lg text-gray-200 py-4 border-b border-gray-800 
-        hover:bg-gray-900 hover:text-green-500 transition-all duration-300"
-      >
-        Eventos
-      </a>
-      <a
-        href="/pilotos"
-        class="block text-lg text-gray-200 py-4 border-b border-gray-800 
-        hover:bg-gray-900 hover:text-green-500 transition-all duration-300"
-      >
-        Pilotos
-      </a>
-      <a
-        href="/contacto"
-        class="block text-lg text-gray-200 py-4 border-b border-gray-800 
-        hover:bg-gray-900 hover:text-green-500 transition-all duration-300"
-      >
-        Contacto
-      </a>
-      <a
-        href="/inscripcion"
-        class="w-full bg-green-600 text-white px-7 py-4 rounded-lg 
-        font-bold text-sm tracking-wider uppercase 
-        hover:bg-green-700 mt-16 
-        transition-colors shadow-md hover:shadow-lg"
-      >
-        Inscríbete Ahora
-      </a>
-    </nav>      
   </div>
 </header>
 
 <script>
-  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  // Variables para los menús
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = document.querySelector('.hamburger-icon');
 
-  mobileMenuToggle?.addEventListener('click', () => {
-    mobileMenu?.classList.remove('translate-x-full');
-    mobileMenu?.classList.add('translate-x-0');
+  // Toggle del menú móvil y animación del ícono
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    hamburgerIcon?.classList.toggle('active');
   });
 
-  mobileMenuClose?.addEventListener('click', () => {
-    mobileMenu?.classList.remove('translate-x-0');
-    mobileMenu?.classList.add('translate-x-full');
+  // Desktop menu buttons
+  const menuButtons = document.querySelectorAll('.menu-button');
+  menuButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const submenu = button.nextElementSibling;
+      // Cerrar otros submenús
+      document.querySelectorAll('.submenu').forEach(menu => {
+        if (menu !== submenu) menu.classList.add('hidden');
+      });
+      submenu?.classList.toggle('hidden');
+    });
+  });
+
+  // Cerrar submenús al hacer click fuera
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.submenu').forEach(menu => {
+      menu.classList.add('hidden');
+    });
+  });
+
+  // Mobile dropdowns
+  const mobileDropdowns = document.querySelectorAll('.mobile-dropdown');
+  mobileDropdowns.forEach(dropdown => {
+    const button = dropdown.querySelector('button');
+    const content = dropdown.querySelector('div');
+    
+    button?.addEventListener('click', () => {
+      // Cerrar otros dropdowns
+      mobileDropdowns.forEach(otherDropdown => {
+        if (otherDropdown !== dropdown) {
+          otherDropdown.querySelector('div')?.classList.add('hidden');
+          otherDropdown.querySelector('svg')?.classList.remove('rotate-180');
+        }
+      });
+      
+      content?.classList.toggle('hidden');
+      button.querySelector('svg')?.classList.toggle('rotate-180');
+    });
   });
 </script>
+
+<style>
+  /* Estilos para el ícono hamburguesa */
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    width: 24px;
+    height: 24px;
+    justify-content: space-around;
+    position: relative;
+  }
+
+  .line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+  }
+
+  .hamburger-icon.active .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger-icon.active .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-icon.active .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Transiciones suaves */
+  #mobile-menu {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .mobile-dropdown button svg {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* Asegura que los submenús desktop se muestren suavemente */
+  .submenu {
+    transition: opacity 0.2s ease-in-out;
+  }
+</style>
+-->

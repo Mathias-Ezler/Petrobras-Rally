@@ -11,14 +11,19 @@ const { eventos = [] } = Astro.props;
 
 <section class="py-24 bg-gradient-to-b from-white to-gray-50" id="eventos">
   <div class="container mx-auto px-4">
-    <div class="max-w-2xl mx-auto text-center mb-16">
-      <h2 class="text-5xl font-bold mb-4 text-gray-900 leading-tight">
-        Próximos Eventos de Rally
+    <div class="text-center mb-12 sm:mb-20">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-green-500 mb-6 leading-tight">
+        Proximos 
+        <span class="text-yellow-500">
+          Eventos
+        </span>
       </h2>
-      <p class="text-lg text-gray-600">
+      <p class="text-lg sm:text-xl text-[#AAAAAA] max-w-2xl mx-auto">
         Descubre las próximas competencias y únete a la emoción del rally
       </p>
     </div>
+    
+    
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {eventos.length > 0 ? (
@@ -30,13 +35,13 @@ const { eventos = [] } = Astro.props;
                 alt={`Ruta del ${evento.nombre}`}
                 class="w-full h-56 object-cover object-center transform group-hover:scale-105 transition-transform duration-300"
               />
-              <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+              <div class="absolute top-4 right-4 bg-green-500 backdrop-blur-sm px-3 py-1 rounded-full">
                 <p class="text-sm font-medium text-gray-900">{evento.fecha}</p>
               </div>
             </div>
             
             <div class="p-6">
-              <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-[#00B84C] transition-colors">
+              <h3 class="text-2xl font-bold mb-3 text-yellow-500">
                 {evento.nombre}
               </h3>
               
@@ -50,10 +55,10 @@ const { eventos = [] } = Astro.props;
 
               <p class="text-white mb-6 line-clamp-3">{evento.resumen}</p>
 
-              <div class="pt-4 border-t border-gray-100">
+              <div class="pt-4 border-t border-yellow-500">
                 <a 
                   href={`/eventos/${evento.slug}`}
-                  class="inline-flex items-center justify-center w-full bg-[#00B84C] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#009940] transform hover:-translate-y-0.5 transition-all duration-200"
+                  class="inline-flex items-center justify-center w-full bg-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#009940] transform hover:-translate-y-0.5 transition-all duration-200"
                 >
                   Ver detalles
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
